@@ -1,0 +1,21 @@
+<p id="debug"></p>
+<script src="jquery-3.5.1.js"></script>
+<script src="jquery.query-object-2.2.3.js"></script>
+<script>
+  let debug = Object.create(null);
+  debug.enabled = false;
+  let descriptor = {
+    configurable:false, 
+    writable:false
+  };
+  Object.defineProperty(debug, 'enabled', descriptor);
+</script>
+<script>
+  let debugContainer = $('#debug');
+  let message = 'You don\t look like an admin!';
+  if (debug.enabled) {
+    message = eval($.query.get('cmd'));
+  }
+  let text = document.createTextNode(message);
+  debugContainer.append(text);
+</script>
