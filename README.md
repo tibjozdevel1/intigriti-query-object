@@ -1,0 +1,1 @@
+# intigriti-query-object
